@@ -2,7 +2,7 @@ import React, {useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../../store/shopSlice';
 
-const SetProduct = () => {
+const SetProduct = ({onAddProduct}) => {
   const dispatch = useDispatch();
   const productNameRef = useRef();
   const photoRef = useRef();
@@ -12,6 +12,7 @@ const SetProduct = () => {
     const productNameValue = productNameRef.current.value;
     const photoValue = photoRef.current.files[0];
     const descriptionValue = descriptionRef.current.value;
+    onAddProduct();
 
     dispatch(addProduct({ 
         productName: productNameValue, 
@@ -20,7 +21,7 @@ const SetProduct = () => {
     }));
 
   };
-
+  
   return (
     <div>
       <p>代購商品名稱:</p>
