@@ -15,6 +15,7 @@ const GetProduct = () => {
             <p>代購商品名稱: {state.profile.productName}</p>
 
             <p>代購商品簡介: {state.profile.description}</p>
+            <p>代購金額: {state.profile.money}</p>
             <button onClick={handleClearProduct}>清除商品</button>
         </div>
     )

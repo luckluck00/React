@@ -13,11 +13,13 @@ const SetProduct = ({ onAddProduct }) => {
     const productNameValue = productNameRef.current.value;
     const photoValue = photoRef.current.files[0];
     const descriptionValue = descriptionRef.current.value;
+    const moneyValue = moneyRef.current.value;
 
     const newProduct = {
       productName: productNameValue,
       photo: photoValue,
       description: descriptionValue,
+      money: moneyValue
     };
 
     setProducts([...products, newProduct]); // 將新商品添加到商品列表
@@ -35,6 +37,8 @@ const SetProduct = ({ onAddProduct }) => {
       <input type="file" name="photo" id="photo" ref={photoRef} />
       <p>代購商品簡介:</p>
       <input type="text" placeholder="description" name="description" id="description" ref={descriptionRef} />
+      <p>代購金額:</p>
+      <input type="number" placeholder="money" name="money" id="money" ref={moneyRef}  />
       <button className="add2" onClick={handleAddProduct}>
         新增
       </button>
@@ -47,6 +51,7 @@ const SetProduct = ({ onAddProduct }) => {
             <li key={index}>
               <p>商品名稱: {product.productName}</p>
               <p>商品簡介: {product.description}</p>
+              <p>代購金額: {product.money}</p>
             </li>
           ))}
         </ul>
